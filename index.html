@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquaculture Water Quality Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a1a2f;
+            color: #e5e7eb;
+        }
+        .hero-bg {
+            background-image: url('https://source.unsplash.com/random/1600x900/?aquarium');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        nav a {
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #34d399;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="bg-gray-900 text-white">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="/images/logos.png" alt="Aquaculture System Logo" class="h-10">
+            </div>
+            <div>
+                <!-- Removed "Join the Community" button -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-gray-800 sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4">
+            <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8">
+                <li><a href="#introduction" class="text-white">Introduction</a></li>
+                <li><a href="#about" class="text-white">About</a></li>
+                <li><a href="#objectives" class="text-white">Objectives</a></li>
+                <li><a href="#design" class="text-white">System Design</a></li>
+                <li><a href="#implementation" class="text-white">Implementation</a></li>
+                <li><a href="#testing" class="text-white">Testing</a></li>
+                <li><a href="#comparison" class="text-white">Comparison</a></li>
+                <li><a href="#future" class="text-white">Future Work</a></li>
+                <li><a href="#team" class="text-white">Team</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg py-24 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Advancing Aquaculture</h1>
+            <p class="text-xl md:text-2xl mb-6">A Cost-Effective IoT Solution for Ornamental Fish Breeding</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#introduction" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">What We Do</a>
+                <a href="#about" class="bg-gray-700 text-white px-6 py-3 rounded-full hover:bg-gray-600 transition">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="introduction" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="card bg-gray-800 p-8 rounded-lg">
+                <h2 class="text-3xl font-bold mb-4 text-green-400">Introduction</h2>
+                <p class="text-lg">
+                    Welcome to the official project website for the "Embedded System for Aquaculture Water Quality Management," a final-year research project conducted at the Faculty of Technology, University of Sri Jayewardenepura. Our project tackles a critical issue in Sri Lanka's ornamental fish breeding industry: poor water quality management in small to medium-scale fish tanks. Using embedded systems, sensor networks, and IoT technologies, we developed a cost-effective, semi-automated solution to monitor and manage tank conditions like temperature, turbidity, and water level, reducing manual effort and promoting sustainable aquaculture.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="card bg-gray-800 p-8 rounded-lg">
+                <h2 class="text-3xl font-bold mb-4 text-green-400">About the Project</h2>
+                <p class="text-lg">
+                    Inspired by challenges faced by small-scale fish breeders in Sri Lanka, our project addresses the inefficiencies of manual water quality monitoring. Despite Sri Lanka's ideal climate for year-round ornamental fish breeding, many breeders rely on time-consuming and error-prone manual methods. Our embedded system automates the monitoring of key parameters like temperature and turbidity using sensors and microcontrollers, providing real-time control at a budget-friendly cost. The system was motivated by real-world issues encountered at a team member’s breeding center, emphasizing the need for an affordable, efficient solution.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objectives Section -->
+    <section id="objectives" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="card bg-gray-800 p-8 rounded-lg">
+                <h2 class="text-3xl font-bold mb-4 text-green-400">Research Objectives</h2>
+                <p class="text-lg">
+                    The primary goal was to develop an automated embedded system for monitoring and managing water quality in ornamental fish tanks, focusing on temperature, turbidity, and water level. The system integrates an Arduino Mega microcontroller, DS18B20 temperature sensor, TS-300B turbidity sensor, and HC-SR04 ultrasonic sensor. It features a mobile app for real-time notifications and remote control via ESP32 Wi-Fi and the ThingSpeak IoT platform. Specific objectives include cloud integration (initially planned with Azure IoT Hub) and minimal user intervention to enhance productivity and scalability for small breeding operations.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Design Section -->
+    <section id="design" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="card bg-gray-800 p-8 rounded-lg">
+                <h2 class="text-3xl font-bold mb-4 text-green-400">System Design</h2>
+                <p class="text-lg">
+                    The system employs a layered architecture with three levels: sensor and actuator, processing, and user interface. The sensor network includes a DS18B20 temperature sensor, TS-300B turbidity sensor, and HC-SR04 ultrasonic water level sensor. An Arduino Mega handles data collection and control logic. A 3D-printed robotic arm, driven by stepper motors and a timing belt, performs tank cleaning. The ESP32 module enables cloud connectivity, and a web/mobile app allows users to view data and trigger cleaning cycles manually if needed.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Section -->
+    <section id="implementation" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="card bg-gray-800 p-8 rounded-lg">
+                <h2 class="text-3xl font-bold mb-4 text-green-400">Implementation</h2>
+                <p class="text-lg">
+                    The prototype was built using cost-effective, locally sourced components, including an Arduino Mega, Arduino Nano, NEMA 17 stepper motors, A4988 drivers, solenoid valves, linear shafts, and timing belts, all mounted on a 60x30x40 cm aluminum frame. Custom 3D-printed parts, designed with 3D modeling software, ensure precise tank cleaning. The robotic arm and solenoid valves manage water inflow/outflow during cleaning cycles, with a Real-Time Clock (RTC) module enabling time-based automation and float switches preventing overfilling or excessive draining.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testing and Results Section -->
+    <section id="testing" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="card bg-gray-800 p-8 rounded-lg">
+                <h2 class="text-3xl font-bold mb-4 text-green-400">Testing and Results</h2>
+                <p class="text-lg">
+                    Testing at Hemantha Discus Breeding Center in Kadawatha showed the system maintained water temperature between 23°C and 29°C, with automatic heater activation. The TS-300B turbidity sensor lacked sensitivity, prompting a hybrid model with manual turbidity classification (slight, moderate, high), triggering 15%, 30%, or 55% water replacement. The system reduced manual labor, ensured consistent conditions, and proved reliable in temperature and water level management.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="comparison" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="card bg-gray-800 p-8 rounded-lg">
+                <h2 class="text-3xl font-bold mb-4 text-green-400">Comparison with Existing Solutions</h2>
+                <p class="text-lg">
+                    Our system, priced at $100, outperforms costly alternatives like the Seneye Pond ($500+, no automation), MOAI’s robotic cleaner ($400, no monitoring), and commercial pool robots ($500-$1500, unsuitable for small tanks). Unlike labor-intensive manual gravel vacuums ($20-$50), our solution integrates cleaning, monitoring, and control, offering small breeders an affordable, multifunctional tool.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Work Section -->
+    <section id="future" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="card bg-gray-800 p-8 rounded-lg">
+                <h2 class="text-3xl font-bold mb-4 text-green-400">Future Work</h2>
+                <p class="text-lg">
+                    Future enhancements include improving turbidity sensor accuracy with advanced optical sensors or camera-based processing, adding pH monitoring, and enabling multi-tank management. A refined mobile app with AI-driven analytics and SMS/WhatsApp alerts will further improve automation and usability.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 text-green-400">Our Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card bg-gray-800 p-6 rounded-lg text-center">
+                    <h3 class="text-xl font-semibold text-blue-400">H.M.P.K.G.K.L. Herath</h3>
+                    <p class="text-gray-400">ICT20849</p>
+                    <p class="text-gray-400">ict20849@fot.sjp.ac.lk</p>
+                </div>
+                <div class="card bg-gray-800 p-6 rounded-lg text-center">
+                    <h3 class="text-xl font-semibold text-blue-400">M.A.H. Rashmika</h3>
+                    <p class="text-gray-400">ICT20913</p>
+                    <p class="text-gray-400">ict20913@fot.sjp.ac.lk</p>
+                </div>
+                <div class="card bg-gray-800 p-6 rounded-lg text-center">
+                    <h3 class="text-xl font-semibold text-blue-400">W.M.N.T. Wansooriya</h3>
+                    <p class="text-gray-400">ICT20954</p>
+                    <p class="text-gray-400">ict20954@fot.sjp.ac.lk</p>
+                </div>
+            </div>
+            <p class="text-lg text-center mt-8">
+                Supervised by Dr. Nuwan Kuruwitaarachchi (Senior Lecturer, Faculty of Technology, USJ) and Ms. P.M. Kumbukage.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-900">
+    <div class="container mx-auto px-4">
+        
+       
+        
+        <p class="text-lg text-center">
+            Download the full thesis by clicking the button below:
+        </p>
+        <div class="text-center mt-4">
+            <a href="/thesis_final .pdf" download class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">Download Thesis</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 Faculty of Technology, University of Sri Jayewardenepura. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
