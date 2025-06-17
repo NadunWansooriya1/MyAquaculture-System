@@ -25,11 +25,58 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
-        nav a {
-            transition: color 0.3s ease;
+        .nav-container {
+            background: linear-gradient(90deg, #1f2937 0%, #111827 100%);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
         }
-        nav a:hover {
+        .nav-item {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+        .nav-item:hover {
             color: #34d399;
+            transform: translateY(-2px);
+        }
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #34d399;
+            transition: width 0.3s ease;
+        }
+        .nav-item:hover::after {
+            width: 100%;
+        }
+        .nav-item.active {
+            color: #34d399;
+            font-weight: 600;
+        }
+        .nav-item.active::after {
+            width: 100%;
+        }
+
+        /* Video Section Styles */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 0.5rem;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
     </style>
 </head>
@@ -47,18 +94,18 @@
     </header>
 
     <!-- Navigation -->
-    <nav class="bg-gray-800 sticky top-0 z-10">
+    <nav class="nav-container sticky top-0 z-10">
         <div class="container mx-auto px-4 py-4">
-            <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8">
-                <li><a href="#introduction" class="text-white">Introduction</a></li>
-                <li><a href="#about" class="text-white">About</a></li>
-                <li><a href="#objectives" class="text-white">Objectives</a></li>
-                <li><a href="#design" class="text-white">System Design</a></li>
-                <li><a href="#implementation" class="text-white">Implementation</a></li>
-                <li><a href="#testing" class="text-white">Testing</a></li>
-                <li><a href="#comparison" class="text-white">Comparison</a></li>
-                <li><a href="#future" class="text-white">Future Work</a></li>
-                <li><a href="#team" class="text-white">Team</a></li>
+            <ul class="flex flex-wrap justify-center space-x-2 md:space-x-6">
+                <li><a href="#introduction" class="nav-item text-white text-lg">Introduction</a></li>
+                <li><a href="#about" class="nav-item text-white text-lg">About</a></li>
+                <li><a href="#objectives" class="nav-item text-white text-lg">Objectives</a></li>
+                <li><a href="#design" class="nav-item text-white text-lg">System Design</a></li>
+                <li><a href="#implementation" class="nav-item text-white text-lg">Implementation</a></li>
+                <li><a href="#testing" class="nav-item text-white text-lg">Testing</a></li>
+                <li><a href="#comparison" class="nav-item text-white text-lg">Comparison</a></li>
+                <li><a href="#future" class="nav-item text-white text-lg">Future Work</a></li>
+                <li><a href="#team" class="nav-item text-white text-lg">Team</a></li>
             </ul>
         </div>
     </nav>
@@ -110,7 +157,11 @@
             <div class="card bg-gray-800 p-8 rounded-lg">
                 <h2 class="text-3xl font-bold mb-4 text-green-400">Research Objectives</h2>
                 <p class="text-lg">
-                    The primary goal was to develop an automated embedded system for monitoring and managing water quality in ornamental fish tanks, focusing on temperature, turbidity, and water level. The system integrates an Arduino Mega microcontroller, DS18B20 temperature sensor, TS-300B turbidity sensor, and HC-SR04 ultrasonic sensor. It features a web app for real-time notifications and remote control via ESP32 Wi-Fi and the ThingSpeak IoT platform. Specific objectives include cloud integration and minimal user intervention to enhance productivity and scalability for small breeding operations.
+                    <b>Main objective</b><br>
+                        The research aims to develop an automated system that handles bottom cleanup and monitors essential water quality indicators, including temperature and turbidity in ornamental fish tanks through sensor and microcontrollers and cloud-based services. 
+                    <br><br>
+                    <b>Specific objectives</b><br>
+                    The system combines temperature and turbidity sensors with an Arduino Mega microcontroller to achieve continuous water quality monitoring.The mobile application provides farmers with real-time information about water quality parameters and system status through its user-friendly interface.
                 </p>
             </div>
         </div>
@@ -138,6 +189,8 @@
                     The prototype was built using cost-effective, locally sourced components, including an Arduino Mega, Arduino Nano, NEMA 17 stepper motors, A4988 drivers, solenoid valves, linear shafts, and timing belts, all mounted on a 60x30x40 cm aluminum frame. Custom 3D-printed parts, designed with 3D modeling software, ensure precise tank cleaning. The robotic arm and solenoid valves manage water inflow/outflow during cleaning cycles, with a Real-Time Clock (RTC) module enabling time-based automation and float switches preventing overfilling or excessive draining.
                 </p>
                 <img src="./images/Implementation.png" alt="Implementation Diagram" class="mt-4 w-full max-w-2xl mx-auto">
+                <img src="./images/Implementation 2.png" alt="Implementation Diagram" class="mt-4 w-full max-w-2xl mx-auto">
+
             </div>
         </div>
     </section>
@@ -176,8 +229,27 @@
             <div class="card bg-gray-800 p-8 rounded-lg">
                 <h2 class="text-3xl font-bold mb-4 text-green-400">Future Work</h2>
                 <p class="text-lg">
-                    Future enhancements include improving turbidity sensor accuracy with advanced optical sensors or camera-based processing, adding pH monitoring, and enabling multi-tank management. A refined web app with AI-driven analytics and SMS/WhatsApp alerts will further improve automation and usability.
+                    <ul style="list-style-type: disc; color: #ffffff; font-size: 1.2em; line-height: 1.5; padding-left: 20px;">
+                            <li style="margin-bottom: 10px;">Improved Turbidity Detection with scientific turbidity sensor.</li>
+                            <li style="margin-bottom: 10px;">Full Automation of Cleaning Decisions – to avoid relying on manual turbidity inputs, machine learning algorithms can be trained using historical water quality data.</li>
+                            <li style="margin-bottom: 10px;">Multi-Tank Control Setup – one controller unit can handle multiple tanks</li>
+                    </ul>
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Video Section -->
+    <section id="demo" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="card bg-gray-800 p-8 rounded-lg">
+                <h2 class="text-3xl font-bold mb-4 text-green-400">Demo Video</h2>
+                <p class="text-lg mb-4">
+                    Watch our demonstration video to see the Aquaculture Water Quality Management System in action, showcasing its monitoring and cleaning capabilities.
+                </p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/wtmyLeXGv4U" title="Research Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
     </section>
@@ -204,25 +276,21 @@
                 </div>
             </div>
             <p class="text-lg text-center mt-8">
-                Supervised by Dr. Nuwan Kuruwitaarachchi (Senior Lecturer, Faculty of Technology, USJ) and Ms. P.M. Kumbukage.
+                Supervised by Dr. Nuwan Kuruwitaarachchi (Senior Lecturer, Faculty of Technology, USJ) and Co Supervisor: Ms. P.M. Kumbukage.
             </p>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-900">
-    <div class="container mx-auto px-4">
-        
-       
-        
-        <p class="text-lg text-center">
-            Download the full thesis by clicking the button below:
-        </p>
-        <div class="text-center mt-4">
-            <a href="https://drive.google.com/drive/folders/1IOHIh1ydfCCH_2aBX4SocJes4mYRPjDY?usp=drive_link" target="_blank"  download class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">Download Thesis</a>
+    
+        <section id="contact" class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <p class="text-lg text-center">
+                Download the full thesis or source code by clicking the buttons below:
+            </p>
+            <div class="text-center mt-4 flex justify-center space-x-4">
+                <a href="https://drive.google.com/file/d/1TZcVlKox6SRk63IQ3fG7JuGPEp2LVKTa/view?usp=drive_link" target="_blank" download class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">Download Thesis</a>
+                <a href="https://drive.google.com/file/d/19X0kmwUO0UpGG-eXNn4d0g-0n-W2aPZP/view?usp=sharing" target="_blank" download class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">Download Source Code</a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-gray-800 py-6">
